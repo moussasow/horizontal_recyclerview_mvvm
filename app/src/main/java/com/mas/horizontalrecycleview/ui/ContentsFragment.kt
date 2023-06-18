@@ -43,6 +43,14 @@ class ContentsFragment : Fragment() {
                 }
             }
         })
+
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            binding.textError.apply {
+                text = it
+                visibility = View.VISIBLE
+            }
+            binding.recyclerview.visibility = View.GONE
+        })
     }
 
 }

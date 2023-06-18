@@ -14,6 +14,8 @@ import rx.Observer
 class ContentsViewModel() : ViewModel() {
     private val response = MutableLiveData<ContentsModel?>()
     val contents : LiveData<ContentsModel?> get() = response
+    private val errorResponse = MutableLiveData<String?>()
+    val error : LiveData<String?> get() = errorResponse
 
     fun getContents(context: Context) {
         ApiClient.getContents(context, object : Observer<ContentsModel> {
@@ -21,7 +23,7 @@ class ContentsViewModel() : ViewModel() {
             }
 
             override fun onError(e: Throwable?) {
-                Toast.makeText(context, e?.message ?: "Unknown Error", Toast.LENGTH_SHORT).show()
+                errorResponse.value = e?.message
             }
 
             override fun onNext(contents: ContentsModel?) {

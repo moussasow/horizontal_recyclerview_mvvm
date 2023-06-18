@@ -11,13 +11,15 @@
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:cardUseCompatPadding="false"
+            app:cardCornerRadius="5dp"
             android:elevation="10dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -36,8 +38,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:gravity="center"
+                    android:gravity="center_horizontal"
                     android:text="@{content.title}"
+                    android:minLines="2"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:paddingHorizontal="5dp"
+                    android:paddingVertical="10dp"
                     tools:text="北の三田"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
